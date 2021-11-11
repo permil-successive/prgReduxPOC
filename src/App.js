@@ -21,9 +21,7 @@ import {
   updateColoumTypeAction,
   updateCreateTableDialogOpenState,
   updateAddColoumDialogOpenStateWithColoumIndex,
-  updateTableNameAction as updateTableNameAppAction,
-  updateTableDialogOpenState,
-  updateColoumDialogOpenState,
+  // updateTableNameAction: updateTableNameAppAction,
 } from './reducers';
 
 function App() {
@@ -48,14 +46,8 @@ function App() {
           deleteTableHandle={(tableName) =>
             dispatch(deleteTableAction(tableName))
           }
-          updateTableHandle={(oldTableName) => {
-            stateDispatch(updateTableDialogOpenState(true, oldTableName))
-          }}
-          updateColoumHandle={
-            (oldColoumName, tableName) => stateDispatch(
-              updateColoumDialogOpenState(true, tableName, oldColoumName)
-            )
-          }
+          updateTableHandle={(oldTableName) => dispatch(updateTableNameAction(oldTableName, 'New Table'))}
+          updateColoumHandle={(oldColoumName, tableName) => dispatch(updateColoumAction(tableName, oldColoumName, state.coloum.name, state.coloum.type))}
           newColoumHandle={(idx) => {
             stateDispatch(updateAddColoumDialogOpenStateWithColoumIndex(true, idx))
           }}
@@ -76,23 +68,7 @@ function App() {
           <TextBox
             value={state.tableName}
             placeholder="Enter Tablename"
-            onChange={(name) => stateDispatch(updateTableNameAppAction(name))}
-          />
-        </div>
-      </InputDialogBox>
-
-      <InputDialogBox
-        isOpen={state.dialogBoxIsOpen.updateTable}
-        title="Update Table"
-        setIsOpen={(isOpen) => stateDispatch(updateTableDialogOpenState(isOpen, state.oldTableName))}
-        onPositiveHandle={() => dispatch(updateTableNameAction(state.oldTableName, state.tableName))}
-      >
-        <div>
-          <span>Enter new Tablename</span>
-          <TextBox
-            value={state.tableName}
-            placeholder="Enter new tablename"
-            onChange={(name) => stateDispatch(updateTableNameAppAction(name))}
+            onChange={(name) => stateDispatch({type: 'UPDATE_TABLE_NAME', payload: name})}
           />
         </div>
       </InputDialogBox>
@@ -115,33 +91,6 @@ function App() {
         </div>
         <div>
           <span>Select DataType</span>
-          <Dropdown
-            value={state.coloum.type}
-            onChange={(e) => stateDispatch(updateColoumTypeAction(e.target.value))}
-            placeholder="Select datatype"
-            options={dataTypes}
-          />
-        </div>
-      </InputDialogBox>
-
-      <InputDialogBox
-        isOpen={state.dialogBoxIsOpen.updateColoum}
-        title="update Coloum"
-        setIsOpen={(isOpen) => stateDispatch(updateColoumDialogOpenState(isOpen, state.oldTableName, state.oldColoumName))}
-        onPositiveHandle={() => 
-          dispatch(updateColoumAction(state.oldTableName, state.oldColoumName, state.coloum.name, state.coloum.type))
-        }
-      >
-        <div>
-          <span>Enter new Coloum Name</span>
-          <TextBox
-            value={state.coloum.name}
-            placeholder="Enter Coloum Name"
-            onChange={(name) => stateDispatch(updateColoumNameAction(name))}
-          />
-        </div>
-        <div>
-          <span>Select new DataType</span>
           <Dropdown
             value={state.coloum.type}
             onChange={(e) => stateDispatch(updateColoumTypeAction(e.target.value))}
