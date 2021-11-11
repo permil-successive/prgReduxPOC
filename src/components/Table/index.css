@@ -1,0 +1,17 @@
+/* bg-blue-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow 
+hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 */
+
+.table-header {
+  @apply rounded-xl h-10 w-full bg-gray-300 text-gray-900 text-center p-2;
+}
+
+.table-container {
+  height: fit-content;
+  height: -moz-fit-content;
+  @apply table w-72 m-4 drop-shadow rounded-xl;
+}
+
+.table-row {
+  min-height: 2.5rem;
+  @apply flex px-4 border-b items-center rounded-xl bg-white text-gray-900 py-2;
+}
