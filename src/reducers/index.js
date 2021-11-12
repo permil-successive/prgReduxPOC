@@ -7,5 +7,7 @@ export {
   updateCreateTableDialogOpenState,
   updateTableNameAction,
   updateAddColoumDialogOpenStateWithColoumIndex,
+  updateTableDialogOpenState,
+  updateColoumDialogOpenState,
 } from "./actions";
 export { initialState } from './initialState';
