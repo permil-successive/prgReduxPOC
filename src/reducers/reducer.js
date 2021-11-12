@@ -12,30 +12,6 @@ export const reducer = (state, action) => {
           createTable: action.payload,
         },
       };
-    case actionTypes.UPDATE_TABLE_DIALOG_OPEN_STATE:
-      return {
-        ...state,
-        dialogBoxIsOpen: {
-          ...state.dialogBoxIsOpen,
-          updateTable: action.payload.state,
-        },
-        oldTableName: action.payload.oldTableName,
-        tableName: action.payload.oldTableName,
-      }
-    case actionTypes.UPDATE_COLOUM_DIALOG_OPEN_STATE:
-      return {
-        ...state,
-        oldTableName: action.payload.oldTableName,
-        dialogBoxIsOpen: {
-          ...state.dialogBoxIsOpen,
-          updateColoum: action.payload.state,
-        },
-        oldColoumName: action.payload.oldColoumName,
-        coloum: {
-          ...state.coloum,
-          name: action.payload.oldColoumName,
-        }
-      }
     case actionTypes.UPDATE_ADD_COLOUM_DIALOG_OPEN_STATE:
       return {
         ...state,

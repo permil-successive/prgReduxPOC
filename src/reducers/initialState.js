@@ -1,16 +1,12 @@
 export const initialState = {
-  oldTableName: '',
-  oldColoumName: '',
-  tableName: '',
+  tableName: "",
   coloumIdx: -1,
   coloum: {
-    name: '',
-    type: '',
+    name: "",
+    type: "",
   },
   dialogBoxIsOpen: {
     createTable: false,
-    updateTable: false,
     addColoum: false,
-    updateColoum: false,
   },
 };
