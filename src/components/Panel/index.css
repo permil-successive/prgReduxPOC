@@ -1,0 +1,31 @@
+.panel {
+  @apply min-h-screen w-72 text-gray-900 text-center shadow;
+}
+
+.panel-section {
+  width: inherit;
+}
+
+.panel-CTA {
+  @apply flex shadow place-content-between p-2 bg-gray-50;
+}
+
+.collapsable-row {
+  @apply h-10 shadow bg-gray-100 flex p-2 hover:bg-gray-300;
+}
+
+.collapsable-keys-item {
+  @apply flex p-2 px-4 justify-between;
+}
+
+.collapsable-keys-name {
+  @apply text-left;
+}
+
+.collapsable-keys-type {
+  @apply text-gray-500 ml-2;
+}
+
+.collapsable-title {
+  @apply flex-grow text-left;
+}
