@@ -2,6 +2,10 @@ export const actionTypes = {
   UPDATE_TABLE_NAME: "UPDATE_TABLE_NAME",
   UPDATE_CREATE_TABLE_DIALOG_OPEN_STATE:
     "UPDATE_CREATE_TABLE_DIALOG_OPEN_STATE",
+  UPDATE_TABLE_DIALOG_OPEN_STATE:
+    "UPDATE_TABLE_DIALOG_OPEN_STATE",
+  UPDATE_COLOUM_DIALOG_OPEN_STATE:
+    "UPDATE_COLOUM_DIALOG_OPEN_STATE",
   UPDATE_ADD_COLOUM_DIALOG_OPEN_STATE: "UPDATE_ADD_COLOUM_DIALOG_OPEN_STATE",
   UPDATE_ADD_COLOUM_DIALOG_OPEN_STATE_WITH_COLOUM_INDEX:
     "UPDATE_ADD_COLOUM_DIALOG_OPEN_STATE_WITH_COLOUM_INDEX",
@@ -21,6 +25,27 @@ export const updateCreateTableDialogOpenState = (state) => {
   return {
     type: actionTypes.UPDATE_CREATE_TABLE_DIALOG_OPEN_STATE,
     payload: state,
+  };
+};
+
+export const updateTableDialogOpenState = (state, oldTableName) => {
+  return {
+    type: actionTypes.UPDATE_TABLE_DIALOG_OPEN_STATE,
+    payload: {
+      state,
+      oldTableName,
+    },
+  };
+};
+
+export const updateColoumDialogOpenState = (state, oldTableName, oldColoumName) => {
+  return {
+    type: actionTypes.UPDATE_COLOUM_DIALOG_OPEN_STATE,
+    payload: {
+      state,
+      oldTableName,
+      oldColoumName,
+    },
   };
 };
 
